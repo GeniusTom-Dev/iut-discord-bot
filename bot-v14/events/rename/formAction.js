@@ -1,4 +1,4 @@
-zmodule.exports = {
+module.exports = {
     name: 'interactionCreate',
     async execute(interaction, client) {
         if (!interaction.isModalSubmit()) return;
@@ -7,6 +7,10 @@ zmodule.exports = {
         const surname = interaction.fields.getTextInputValue('surname');
         const years = interaction.fields.getTextInputValue('years');
 
-        const member = interaction.guild.members.cache.get(interaction.user.id)
+        const member = interaction.guild.members.cache.get(interaction.user.id);
+
+        member.setNickname(`${name} ${surname} ${years}`)
+
+        await interaction.deferUpdate();
     }
 }
