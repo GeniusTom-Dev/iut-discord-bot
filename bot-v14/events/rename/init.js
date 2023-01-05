@@ -4,7 +4,7 @@ const config = require('../../config.json')
 module.exports = {
     name: 'ready',
     async execute(interaction, client) {
-        const infoChannel = await client.channels.cache.get(config.renameChannel);
+        const renameChannel = await client.channels.cache.get(config.renameChannelId);
 
         const embedRename = new client.discord.EmbedBuilder()
             .setColor(config.colorEmbed)
@@ -19,15 +19,15 @@ module.exports = {
                     .setCustomId('rename-user')
                     .setLabel('Se renommer')
                     .setEmoji('🙎‍♂️')
-                    .setStyle(client.discord.ButtonStyle.Success)
+                    .setStyle('Success')
             );
 
 
         let message
 
-        infoChannel.messages.fetch({ limit: 1 }).then(async messages => {
+        renameChannel.messages.fetch({ limit: 1 }).then(async messages => {
             if(messages.size < 1){
-                message = await infoChannel.send({embeds: [embedRename], components: [openRenameForm]})
+                await renameChannel.send({embeds: [embedRename], components: [openRenameForm]})
             }
         })
 

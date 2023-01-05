@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const fs = require('fs');
 const intents = new Discord.IntentsBitField(3276799);
-const client = new Discord.Client({intents});
+const client = new Discord.Client({intents, partials: [Discord.Partials.Message, Discord.Partials.Channel, Discord.Partials.Reaction],});
 const {REST} = require('@discordjs/rest');
 const {Routes, Collection} = require('discord.js');
 const config = require('./config.json')
@@ -54,7 +54,10 @@ client.on('ready', () => {
         .then(() => console.log('Successfully registered application commands.'))
         .catch(console.error);
 
-    client.user.setActivity('discord.gg/five-dev', {type: 'WATCHING'})
+        client.user.setPresence({
+            activities: [{ name: `les pseudos`, type: client.discord.ActivityType.Watching }],
+            status: 'online',
+        });
 });
 
 client.login(config.token);

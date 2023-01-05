@@ -2,10 +2,16 @@
     "token": "MTAzMzQyNDIyMjc3NDYyODQwMg.GZ4IUH.QeEFSluHF_X7qQad6nEzYqrnKDN2naJpcqlVpY",
   
     "colorEmbed": "#FF0000",
-    "serverName": "Dev",
+    "serverName": "IUT Info Aix",
+    "guildId": "1034089037520183326",
     "logo" : "https://cdn.discordapp.com/icons/618875624399831040/bb6c1e8ddd6d7b3e203de5e399ae18c4.webp?size=96",
 
-    "renameChannel": "1033451378535845918"
+    "renameChannelId": "1034089037998346250",
+    "logsChannelId": "1059465363005390848",
+
+    "adminRoleId":"952689345729548389",
+    "profRoleId":"949726279400292372",
+    "ancienRoleId":"953018437561626784"
   
     
   
